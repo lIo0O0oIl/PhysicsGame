@@ -11,6 +11,7 @@ public class DragAndDrop : MonoBehaviour
     bool isHeld = false;
     public bool isInLine;
     float stickPosY;
+    float stickPosX;
 
     private void Start()
     {
@@ -32,7 +33,7 @@ public class DragAndDrop : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
 
-            spriteRenderer.color = new Color(1f, 1f, 1f, .5f);
+            spriteRenderer.color = new Color(1f, 1f, 1f, 0.5f);
             Vector3 mousePos;
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
@@ -52,7 +53,7 @@ public class DragAndDrop : MonoBehaviour
         isHeld = false;
 
         if (isInLine)
-            this.gameObject.transform.position = new Vector3(this.gameObject.transform.localPosition.x, stickPosY, -1f);
+            this.gameObject.transform.position = new Vector3(stickPosX, stickPosY, 0);
         else
             this.gameObject.transform.position = thisPos;
     }
@@ -63,6 +64,7 @@ public class DragAndDrop : MonoBehaviour
         {
             isInLine = true;
             stickPosY = other.transform.position.y;
+            stickPosX = other.transform.position.x;
         }
     }
 
