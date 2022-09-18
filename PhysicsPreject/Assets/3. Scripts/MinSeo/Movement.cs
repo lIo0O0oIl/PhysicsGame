@@ -4,15 +4,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    private float _speed;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
