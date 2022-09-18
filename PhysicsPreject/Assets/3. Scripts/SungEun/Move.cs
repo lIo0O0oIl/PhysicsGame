@@ -6,7 +6,9 @@ using DG.Tweening;
 public class Move : MonoBehaviour
 {
     [SerializeField] GameObject p_S, n_S, p_1, n_1;
-    public bool isP, isN;
+
+    [SerializeField]
+    SpriteRenderer[] oO;
 
     SpriteRenderer[] p_1A;
 
@@ -20,12 +22,6 @@ public class Move : MonoBehaviour
         Invoke("SetA", 2f);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     void SetA()
     {
         p_1.SetActive(true);
@@ -35,6 +31,15 @@ public class Move : MonoBehaviour
         {
             p_1A[i].DOFade(1f, 1f);
         }
-        //여기서 다트윈 페이드 인
+
+        Invoke("SetA_A", .5f);
+    }
+
+    void SetA_A()
+    {
+        for (int i = 0; i < oO.Length; i++)
+        {
+            oO[i].DOFade(1f, 1f);
+        }
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class DragAndDrop : MonoBehaviour
 {
@@ -11,7 +12,6 @@ public class DragAndDrop : MonoBehaviour
     bool isHeld = false;
     public bool isInLine;
     float stickPosY;
-    float stickPosX;
 
     private void Start()
     {
@@ -30,20 +30,23 @@ public class DragAndDrop : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (!isInLine)
         {
+            if (Input.GetMouseButtonDown(0))
+            {
 
-            spriteRenderer.color = new Color(1f, 1f, 1f, 0.5f);
-            Vector3 mousePos;
-            mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-
-            startPosx = mousePos.x - this.transform.position.x;
-            startPosY = mousePos.y - this.transform.position.y;
+                spriteRenderer.color = new Color(1f, 1f, 1f, 0.5f);
+                Vector3 mousePos;
+                mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
 
-            isHeld = true;
+                startPosx = mousePos.x - this.transform.position.x;
+                startPosY = mousePos.y - this.transform.position.y;
 
+
+                isHeld = true;
+
+            }
         }
     }
 
@@ -53,7 +56,10 @@ public class DragAndDrop : MonoBehaviour
         isHeld = false;
 
         if (isInLine)
-            this.gameObject.transform.position = new Vector3(stickPosX, stickPosY, 0);
+        {
+            this.gameObject.transform.position = new Vector3(gameObject.transform.position.x, stickPosY, 0);
+        transform.DOMoveX(10f, 2f).SetEase(Ease.Linear);
+        }
         else
             this.gameObject.transform.position = thisPos;
     }
@@ -64,7 +70,6 @@ public class DragAndDrop : MonoBehaviour
         {
             isInLine = true;
             stickPosY = other.transform.position.y;
-            stickPosX = other.transform.position.x;
         }
     }
 
