@@ -55,7 +55,6 @@ public class DragAndDrop : MonoBehaviour
     {
         spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
         isHeld = false;
-        isGo = false;
 
         if (isInLine || !isGo)
         {
@@ -72,6 +71,7 @@ public class DragAndDrop : MonoBehaviour
         if (other.CompareTag("stick"))
         {
             isInLine = true;
+            isGo = false;
             stickPosY = other.transform.position.y;
         }
     }
@@ -81,6 +81,7 @@ public class DragAndDrop : MonoBehaviour
         if (other.CompareTag("stick"))
         {
             isInLine = false;
+            isGo = true;
         }
     }
 
