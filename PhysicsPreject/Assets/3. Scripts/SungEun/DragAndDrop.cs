@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DragAndDrop : MonoBehaviour
 {
+    Tleos tleos = null;
+
     [SerializeField] SpriteRenderer spriteRenderer;
     public Vector3 thisPos;
     float startPosx;
@@ -12,16 +14,23 @@ public class DragAndDrop : MonoBehaviour
     public bool isInLine;
     float stickPosY;
 
+    Camera cam = null;
+
     private void Start()
     {
         thisPos = this.transform.position;
+    }
+    private void Awake() {
+        tleos = GetComponent<Tleos>();
+
+        cam = Camera.main;
     }
     private void Update()
     {
         if (isHeld)
         {
             Vector2 mousePos;
-            mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
             this.gameObject.transform.position = new Vector2(mousePos.x - startPosx, mousePos.y - startPosY);
         }
@@ -34,7 +43,7 @@ public class DragAndDrop : MonoBehaviour
 
             spriteRenderer.color = new Color(1f, 1f, 1f, .5f);
             Vector3 mousePos;
-            mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
 
             startPosx = mousePos.x - this.transform.position.x;
@@ -42,7 +51,6 @@ public class DragAndDrop : MonoBehaviour
 
 
             isHeld = true;
-
         }
     }
 
