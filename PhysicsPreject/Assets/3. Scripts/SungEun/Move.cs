@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Move : MonoBehaviour
 {
@@ -21,6 +22,11 @@ public class Move : MonoBehaviour
     [SerializeField] GameObject backButton, backButton_n;
     public int gogo = 0;
 
+    public bool clearP, clearN, startP, startN = false;
+    [SerializeField] GameObject noClickPanel;
+    [SerializeField] GameObject me, message;
+    [SerializeField] TextMeshProUGUI m_message;
+    int PC, NC = 0;
 
     DragAndDrop dragAndDrop;
 
@@ -43,7 +49,63 @@ public class Move : MonoBehaviour
         {
             backButton_n.SetActive(true);
         }
+
+
+        if (startP && !clearP)
+        {
+            m_message.text = "PPPPPP혀혛혀ㅕ혀혀혀ㅕㅇㅎ";
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                PC++;
+                switch (PC)
+                {
+                    case 1:
+                        m_message.text = "P형 반도체는 양공으로 인해";
+                        break;
+                    case 2:
+                        m_message.text = "tlqkftlqkf";
+                        break;
+                    case 5:
+                        me.GetComponent<Image>().DOFade(0f, 1f);
+                        message.GetComponent<Image>().DOFade(0f, 1f);
+                        m_message.GetComponent<TextMeshProUGUI>().DOFade(0f, 1f);
+                        noClickPanel.SetActive(false);
+                        clearP = true;
+                        break;
+                }
+            }
+        }
+
+
+
+        if (startN && !clearN)
+        {
+            m_message.text = "N혀혛혀ㅕ혀혀혀ㅕㅇㅎ";
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                NC++;
+                switch (NC)
+                {
+                    case 1:
+                        m_message.text = "N형 반도체는 양공으로 인해";
+                        break;
+                    case 2:
+                        m_message.text = "tlqkftlqkfnnnnnnnnnnnn";
+                        break;
+                    case 5:
+                        me.GetComponent<Image>().DOFade(0f, 1f);
+                        message.GetComponent<Image>().DOFade(0f, 1f);
+                        m_message.GetComponent<TextMeshProUGUI>().DOFade(0f, 1f);
+                        noClickPanel.SetActive(false);
+                        clearN = true;
+                        break;
+                }
+            }
+        }
     }
+
 
 
 
@@ -84,6 +146,10 @@ public class Move : MonoBehaviour
         oO[5].transform.position = new Vector3(-5.23f, -4f, 0);
         oO[6].transform.position = new Vector3(-7.43f, -3.1f, 0);
 
+        me.transform.position = new Vector3(680, 195, 0);
+        me.transform.Rotate(0, 0, 180);
+        message.transform.position = new Vector3(180, 185, 0);
+
         n_S.SetActive(false);
         P.SetActive(false);
         N.SetActive(false);
@@ -115,7 +181,23 @@ public class Move : MonoBehaviour
         {
             oO[i].DOFade(1f, 1.5f);
         }
+
+        P_Clear();
     }
+
+    void P_Clear()
+    {
+        if (!clearP)
+        {
+            noClickPanel.SetActive(true);
+            startP = true;
+
+            me.GetComponent<Image>().DOFade(1f, 1f);
+            message.GetComponent<Image>().DOFade(1f, 1f);
+            m_message.GetComponent<TextMeshProUGUI>().DOFade(1f, 1f);
+        }
+    }
+
 
 
 
@@ -132,6 +214,10 @@ public class Move : MonoBehaviour
         oO[4].transform.position = new Vector3(-0.9f, 1.15f, 0);
         oO[5].transform.position = new Vector3(-1.87f, 1.2f, 0);
         oO[6].transform.position = new Vector3(-2.78f, 1.58f, 0);
+
+        me.transform.position = new Vector3(730, -234, 0);
+        me.transform.Rotate(0, 0, 0);
+        message.transform.position = new Vector3(240, -234, 0);
 
         p_S.SetActive(false);
         P.SetActive(false);
@@ -164,6 +250,21 @@ public class Move : MonoBehaviour
         for (int i = 0; i < oO.Length; i++)
         {
             oO[i].DOFade(1f, 1.5f);
+        }
+
+        N_Clear();
+    }
+
+    void N_Clear()
+    {
+        if (!clearN)
+        {
+            noClickPanel.SetActive(true);
+            startN = true;
+
+            me.GetComponent<Image>().DOFade(1f, 1f);
+            message.GetComponent<Image>().DOFade(1f, 1f);
+            m_message.GetComponent<TextMeshProUGUI>().DOFade(1f, 1f);
         }
     }
 
@@ -226,7 +327,7 @@ public class Move : MonoBehaviour
 
         for (int i = 0; i < n_1A.Length; i++)
         {
-            n_1A[i].DOFade(0f, 1.5f);
+            n_1A[i].DOFade(0f, .5f);
         }
 
         n_S.transform.DOMove(new Vector3(4, 0, 0), 3f).SetEase(Ease.InQuad);
