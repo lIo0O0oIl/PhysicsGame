@@ -32,7 +32,7 @@ public class Move : MonoBehaviour
             p_1A[i].DOFade(1f, 1f);
         }
 
-        Invoke("SetA_A", .5f);
+        Invoke("SetA_A", 1f);
     }
 
     void SetA_A()

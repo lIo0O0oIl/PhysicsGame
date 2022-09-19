@@ -12,6 +12,7 @@ public class DragAndDrop : MonoBehaviour
     bool isHeld = false;
     public bool isInLine;
     float stickPosY;
+    bool isGo = true;
 
     private void Start()
     {
@@ -30,7 +31,7 @@ public class DragAndDrop : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!isInLine)
+        if (isGo)
         {
             if (Input.GetMouseButtonDown(0))
             {
@@ -54,11 +55,13 @@ public class DragAndDrop : MonoBehaviour
     {
         spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
         isHeld = false;
+        isGo = false;
 
-        if (isInLine)
+        if (isInLine || !isGo)
         {
             this.gameObject.transform.position = new Vector3(gameObject.transform.position.x, stickPosY, 0);
-        transform.DOMoveX(10f, 2f).SetEase(Ease.Linear);
+            transform.DOMoveX(10f, 2f).SetEase(Ease.Linear);
+            Invoke("Del", 2f);
         }
         else
             this.gameObject.transform.position = thisPos;
@@ -79,5 +82,11 @@ public class DragAndDrop : MonoBehaviour
         {
             isInLine = false;
         }
+    }
+
+    void Del()
+    {
+        //Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }
