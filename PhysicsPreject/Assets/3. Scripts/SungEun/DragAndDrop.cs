@@ -48,6 +48,7 @@ public class DragAndDrop : MonoBehaviour
 
     private void OnMouseDown()
     {
+        Debug.Log("qlftkfadlf");
         if (isGo)
         {
             if (Input.GetMouseButtonDown(0))
