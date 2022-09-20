@@ -7,6 +7,8 @@ public class Led : MonoBehaviour
 {
     [SerializeField]
     private GameObject led;
+    [SerializeField]
+    private GameObject pn;
 
     private SpriteRenderer scolor;
 
@@ -25,12 +27,19 @@ public class Led : MonoBehaviour
     {
         led.transform.DOMove(new Vector3(0, 7, 0), 3f);
         led.transform.DOScale(new Vector3(130, 130, 130), 3f);
-        Invoke("FadeOut", 2f);
+        Invoke("Show", 3.5f);
+    }
+
+    private void Show()
+    {
         led.SetActive(false);
+        pn.SetActive(true);
+        Invoke("FadeOut",5f);
     }
 
     private void FadeOut()
     {
+        pn.SetActive(false);
         led.SetActive(true);
         led.transform.DOMove(new Vector3(0, 1, 0), 3f);
         led.transform.DOScale(new Vector3(12, 12, 12), 3f);

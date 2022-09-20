@@ -1,6 +1,3 @@
-using System.Net.NetworkInformation;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DND : MonoBehaviour
@@ -20,10 +17,17 @@ public class DND : MonoBehaviour
     public Collider2D coln;
     public TTleos T = null;
 
-    private void Start()
+    public void Start()
     {
         thisPos = this.transform.position;
         defaultPos = transform.position;
+    }
+        public void dmddo()
+    {
+        this.transform.position = thisPos;
+        transform.position = defaultPos;
+        tleos.junja.transform.position = tleos.junjaDir;
+        Debug.Log("tlqkfwlswk");
     }
     private void Awake() {
         tleos = GameObject.Find("GameManager").GetComponent<Tleos>();
@@ -41,11 +45,11 @@ public class DND : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if(T != null)
-        {
-            T.d = null;
-            T = null;
-        }
+        // if(T != null)
+        // {
+        //     T.d = null;
+        //     T = null;
+        // }
 
         spriteRenderer.color = new Color(1f, 1f, 1f, .5f);
         factor = (Vector2)transform.position - (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
