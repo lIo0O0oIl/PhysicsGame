@@ -53,7 +53,6 @@ public class Move : MonoBehaviour
 
         if (startP && !clearP)
         {
-            m_message.text = "PPPPPP혀혛혀ㅕ혀혀혀ㅕㅇㅎ";
 
             if (Input.GetMouseButtonDown(0))
             {
@@ -81,7 +80,6 @@ public class Move : MonoBehaviour
 
         if (startN && !clearN)
         {
-            m_message.text = "N혀혛혀ㅕ혀혀혀ㅕㅇㅎ";
 
             if (Input.GetMouseButtonDown(0))
             {
@@ -146,9 +144,11 @@ public class Move : MonoBehaviour
         oO[5].transform.position = new Vector3(-5.23f, -4f, 0);
         oO[6].transform.position = new Vector3(-7.43f, -3.1f, 0);
 
-        me.transform.position = new Vector3(680, 195, 0);
-        me.transform.Rotate(0, 0, 180);
-        message.transform.position = new Vector3(180, 185, 0);
+        //me.transform.position = new Vector3(680, 195, 0);
+        me.transform.localPosition = new Vector3(680, 195, 0);
+        //me.transform.Rotate(0, 0, 180);
+        //message.transform.position = new Vector3(180, 185, 0);
+        message.transform.localPosition = new Vector3(180, 185, 0);
 
         n_S.SetActive(false);
         P.SetActive(false);
@@ -191,6 +191,7 @@ public class Move : MonoBehaviour
         {
             noClickPanel.SetActive(true);
             startP = true;
+            m_message.text = "tkqlf";
 
             me.GetComponent<Image>().DOFade(1f, 1f);
             message.GetComponent<Image>().DOFade(1f, 1f);
@@ -215,9 +216,11 @@ public class Move : MonoBehaviour
         oO[5].transform.position = new Vector3(-1.87f, 1.2f, 0);
         oO[6].transform.position = new Vector3(-2.78f, 1.58f, 0);
 
-        me.transform.position = new Vector3(730, -234, 0);
+        //me.transform.position = new Vector3(730, -234, 0);
+        me.transform.localPosition = new Vector3(730, -234, 0);
         me.transform.Rotate(0, 0, 0);
-        message.transform.position = new Vector3(240, -234, 0);
+        //message.transform.position = new Vector3(240, -234, 0);
+        message.transform.localPosition = new Vector3(240, -234, 0);
 
         p_S.SetActive(false);
         P.SetActive(false);

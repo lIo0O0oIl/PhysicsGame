@@ -1488,8 +1488,8 @@ MonoBehaviour:
   startN: 0
   noClickPanel: {fileID: 698730920}
   me: {fileID: 1616511896}
-  massage: {fileID: 1067790886}
-  m_massage: {fileID: 498658639}
+  message: {fileID: 1067790886}
+  m_message: {fileID: 498658639}
 --- !u!4 &358311989
 Transform:
   m_ObjectHideFlags: 0
