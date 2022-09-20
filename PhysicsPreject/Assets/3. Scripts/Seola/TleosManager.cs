@@ -19,6 +19,8 @@ public class TleosManager : MonoBehaviour
 
     public void Match()
     {
+        Debug.Log(TTLeft.d);
+        Debug.Log(TTRight.d);
         if(TTLeft.d != null && TTRight.d != null)
         {
             switch(TTLeft.d.name + TTRight.d.name)

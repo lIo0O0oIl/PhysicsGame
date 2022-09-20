@@ -8,4 +8,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/1. Scenes/Intro.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/1. Scenes/MinSeo/MinSeo.unity
+    guid: 7028dafd82281d94ea9f34753753dced
+  - enabled: 1
+    path: Assets/1. Scenes/Seola/Seola.unity
+    guid: 5caa6e78221859847827fc691d00f505
+  - enabled: 1
+    path: Assets/1. Scenes/SungEun/SungEun.unity
+    guid: 4bef0c37b46dfad4cbda50cd60d653e9
+  - enabled: 1
+    path: Assets/1. Scenes/MinSeo/New Scene.unity
+    guid: c530479deb90113449b329ce671f1ba5
   m_configObjects: {}

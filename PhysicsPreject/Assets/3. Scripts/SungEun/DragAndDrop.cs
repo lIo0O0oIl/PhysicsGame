@@ -40,7 +40,7 @@ public class DragAndDrop : MonoBehaviour
         if (isHeld)
         {
             Vector2 mousePos;
-            mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+            mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
             this.gameObject.transform.position = new Vector2(mousePos.x - startPosx, mousePos.y - startPosY);
         }
@@ -55,7 +55,7 @@ public class DragAndDrop : MonoBehaviour
             {
             spriteRenderer.color = new Color(1f, 1f, 1f, .5f);
             Vector3 mousePos;
-            mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+            mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
 
                 startPosx = mousePos.x - this.transform.position.x;
