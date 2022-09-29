@@ -71,9 +71,6 @@ public class Move : MonoBehaviour
                         m_message.text = "불순물 에너지 준위로 이동하는 전자들로 인해 원자가 띠에 다수의 양공이 생겨 전류가 흐를 수 있게 돼.";
                             break;
                     case 4:
-                        m_message.text = "전자들을 움직여서 전류를 흐르게 해볼까?";
-                        break;
-                    case 5:
                         me.GetComponent<Image>().DOFade(0f, 1f);
                         message.GetComponent<Image>().DOFade(0f, 1f);
                         m_message.GetComponent<TextMeshProUGUI>().DOFade(0f, 1f);
@@ -101,9 +98,6 @@ public class Move : MonoBehaviour
                         m_message.text = "불순물 에너지 준위에서 전도띠로 이동하는 전자들로 인해 전류가 흐를 수 있게 돼.";
                         break;
                     case 3:
-                        m_message.text = "전자들을 움직여서 전류를 흐르게 해볼까?";
-                        break;
-                    case 4:
                         me.GetComponent<Image>().DOFade(0f, 1f);
                         message.GetComponent<Image>().DOFade(0f, 1f);
                         m_message.GetComponent<TextMeshProUGUI>().DOFade(0f, 1f);
@@ -155,8 +149,12 @@ public class Move : MonoBehaviour
         oO[5].transform.position = new Vector3(-5.23f, -4f, 0);
         oO[6].transform.position = new Vector3(-7.43f, -3.1f, 0);
 
+        //me.transform.position = new Vector3(680, 195, 0);
         me.transform.localPosition = new Vector3(680, 195, 0);
+        //me.transform.Rotate(new Vector3(0, 0, 180));
         me.transform.Rotate(new Vector3(0, 0, 0));                      //여기 버그 있음 회전버그...
+        me.transform.Rotate(new Vector3(0, 0, 0));
+        //message.transform.position = new Vector3(180, 185, 0);
         message.transform.localPosition = new Vector3(180, 185, 0);
 
         n_S.SetActive(false);
@@ -225,8 +223,11 @@ public class Move : MonoBehaviour
         oO[5].transform.position = new Vector3(-1.87f, 0.432f, 0);
         oO[6].transform.position = new Vector3(-2.78f, 0.432f, 0);
 
+        //me.transform.position = new Vector3(730, -234, 0);
         me.transform.localPosition = new Vector3(730, -234, 0);
+        //me.transform.Rotate(new Vector3(0, 0, 0));
         me.transform.Rotate(new Vector3(0, 0, 180));
+        //message.transform.position = new Vector3(240, -234, 0);
         message.transform.localPosition = new Vector3(240, -234, 0);
 
         p_S.SetActive(false);
